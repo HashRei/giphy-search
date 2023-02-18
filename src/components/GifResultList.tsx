@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 interface Picture {
-  url: string;
+  embed_url: string;
 }
 
 export const GifResultList = () => {
@@ -43,12 +43,13 @@ export const GifResultList = () => {
     <div className="grid grid-cols-3 gap-4">
       {pictures !== undefined ? (
         pictures.map((picture, index) => (
-          <div key={index} className="relative">
-            <img
-              src={picture.url}
-              alt={`Picture ${index}`}
-            />
-          <p>{picture.url}</p>
+          <div key={index}>
+            <iframe
+              src={picture.embed_url}
+              title={picture.embed_url}
+              width="480"
+              height="270"
+            ></iframe>
           </div>
         ))
       ) : (
