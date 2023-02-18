@@ -21,7 +21,7 @@ export const GifSearchBar = (): JSX.Element => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-slate-200">
+    <div className="flex flex-col p-16 items-center justify-center bg-slate-200">
       <input
         type="text"
         placeholder="Enter text to search GIF"
