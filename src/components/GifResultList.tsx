@@ -1,15 +1,14 @@
 import "../index.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useSearchValue } from "../context/GifSearchContext";
 
 interface Picture {
   embed_url: string;
 }
 
 export const GifResultList = () => {
-  // const searchValue = useSearchValue();
-
-  const searchValue = "cheesburger";
+  const searchValue = useSearchValue();
 
   const [pictures, setPictures] = useState<Picture[]>([]);
 
@@ -37,7 +36,7 @@ export const GifResultList = () => {
       }
     };
     fetchPictures();
-  }, []);
+  }, [searchValue]);
 
   return (
     <div className="grid grid-cols-3 gap-4">
