@@ -1,10 +1,13 @@
 import "./App.css";
 import { GifSearchBar } from "./components/GifSearchBar";
+import { GifSearchProvider } from "./context/GifSearchContext";
 
 function App() {
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-slate-200">
-      <GifSearchBar />
+    <div>
+      <GifSearchProvider>
+        <GifSearchBar />
+      </GifSearchProvider>
     </div>
   );
 }

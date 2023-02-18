@@ -1,8 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from "react";
+import { useSearchValue, useSetSearchValue } from "../context/GifSearchContext";
 
-export const  GifSearchBar = (): JSX.Element => {
-  const [searchValue, setSearchValue] = useState<string>('');
-  
+export const GifSearchBar = (): JSX.Element => {
+
+  const searchValue = useSearchValue();
+  const setSearchValue = useSetSearchValue();
+
   useEffect(() => {
     const timer = setTimeout(() => {
       // perform search using searchValue
@@ -15,11 +18,11 @@ export const  GifSearchBar = (): JSX.Element => {
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.target.value);
-  }
+  };
 
   return (
-    <div>
-        <input
+    <div className="flex flex-col items-center justify-center h-screen bg-slate-200">
+      <input
         type="text"
         placeholder="Enter text to search GIF"
         name="gifSearch"
@@ -27,4 +30,4 @@ export const  GifSearchBar = (): JSX.Element => {
       />
     </div>
   );
-}
+};
